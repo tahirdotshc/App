@@ -626,7 +626,7 @@ export async function getAllFeaturedProducts(request, response){
     }
 }
 
-export async function getAllFeaturedProducts(request, response){
+export async function deleteProduct(request, response){
    const product = await ProductModel.findById(request.params.id).populate("category");
 
    if(!product) {
@@ -636,13 +636,143 @@ export async function getAllFeaturedProducts(request, response){
             success: false
         })
    }
-      const imageName = image.split(".")[0];
+
+   const images = product.images;
+
+   let img="";
+   for (img of images) {
+    const imgUrl = img;
+    const urlArr = imgUrl.split("/");
+    const image = urlArr[urlArr.length - 1];
+    
+    const imageName = image.split(".")[0];
 
       if(imageName) {
         cloudinary.uploader.destroy(imageName, (error, result) => {
 
         });
+
+}
+
+      
       }
 
-   
+   const deletedProduct = await ProductModel.findByIdAndDelete(request.params.id);
+
+   if(!deletedProduct) {
+    return response.status(404).json({
+            message: "Product Not deleted!",
+            error: true,
+            success: false
+        })
+   }
+
+   return response.status(200).json({
+            message: "Product Deleted",
+            error: false,
+            success: true
+        })
+}
+
+//get Single Product
+export async function getProduct(request, response){
+try {
+
+    const product = await ProductModel.findById(request.params.id).populate("category");
+
+    if(!product) {
+        return response.status(400).json({
+            message: "The Product is not found",
+            error: true,
+            success: false
+        })
+    }
+
+    return response.status(200).json({
+            error: false,
+            success: true,
+            product:product
+        })
+    
+} catch (error) {
+      return response.status(500).json({
+            message: error.message || error,
+            error: true,
+            success: false
+        })
+}
+}
+
+export async function removeImageFromCloudinary(request, response) {
+    const imgUrl = request.query.img;
+    const urlArr = imgUrl.split("/");
+    const image = urlArr[urlArr.length - 1]; //last value of array
+
+    const imageName = image.split(".")[0];
+
+    if (imageName) {
+        const res = await cloudinary.uploader.destroy(
+            imageName,
+            (error, result) => {
+
+            }
+        );
+        if (res) {
+            response.status(200).send(res);
+        }
+    }
+
+}
+
+export async function updateProduct(request, response) {
+    try {
+        const product = await ProductModel.findByIdAndUpdate(
+            request.params.id,
+            {
+                name: request.body.name,
+                subCat: request.body.subCat,
+                description: request.body.description,
+                images: request.body.images,
+                brand: request.body.brand,
+                price: request.body.price,
+                oldPrice: request.body.oldPrice,
+                catId: request.body.catId,
+                catName: request.body.catName,
+                subCat: request.body.subCat,
+                subCatId: request.body.subCatId,
+                category: request.body.category,
+                thirdsubCat: request.body.thirdsubCat,
+                thirdsubCatId: request.body.thirdsubCatId,
+                countInStock: request.body.countInStock,
+                rating: request.body.rating,
+                isFeatured: request.body.isFeatured,
+                productRam: request.body.productRam,
+                productWeight: request.body.productWeight,
+                
+            },
+            { new: true }
+        );
+
+        if(!product) {
+           return response.status(404).json({
+                message:"the product can not be updated!",
+                success:false,
+                error: true
+            })
+        }
+
+        imagesArr = [];
+        
+        return response.status(200).json({
+                message:"the product is updated!",
+                success:true,
+                error: false
+            })
+    } catch (error) {
+        return response.status(500).json({
+            message: error.message || error,
+            error: true,
+            success: false
+        })
+    }
 }
