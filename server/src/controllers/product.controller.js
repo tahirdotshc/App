@@ -627,5 +627,22 @@ export async function getAllFeaturedProducts(request, response){
 }
 
 export async function getAllFeaturedProducts(request, response){
-    
+   const product = await ProductModel.findById(request.params.id).populate("category");
+
+   if(!product) {
+    return response.status(404).json({
+            message: "Product Not Found",
+            error: true,
+            success: false
+        })
+   }
+      const imageName = image.split(".")[0];
+
+      if(imageName) {
+        cloudinary.uploader.destroy(imageName, (error, result) => {
+
+        });
+      }
+
+   
 }
