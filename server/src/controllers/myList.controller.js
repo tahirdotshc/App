@@ -82,3 +82,28 @@ export const deleteToMyListController = async (requestAnimationFrame, response) 
         })
     }
 }
+
+export const getMyListController = async (requestAnimationFrame, response) => {
+
+    try {
+        
+        const userId = request.userId;
+        const myListItems = await myListModel.find({
+            userId:userId
+        })
+
+        return response.status(200).json({
+            error: false,
+            success: true,
+            data:myListItems
+        })
+
+
+    } catch (error) {
+         return response.status(500).json({
+            message: error.message || error,
+            error: true,
+            success: false
+        })
+    }
+}
