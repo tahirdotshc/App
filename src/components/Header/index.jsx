@@ -29,25 +29,18 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const Header = () => {
     return (
         <header>
-            <div className="top-strip py-2">
+            <div className="top-strip py-2 border-t-[1px] border-gray-200 border-b-[1px]">
                 <div className="container">
                     <div className="flex items-center justify-between">
 
-                        <div className="col1 w-[30%]">
+                        <div className="col1 w-[50%]">
                             <div className="text-[14px] font-[500]">
                                 Get up to 50% off new season styles, limited time
                             </div>
                         </div>
 
-                        <div className="col2 w-[40%] flex items-center ">
-
-                        <ul className=''> 
-                            <li className="list-none">
-                                <Link to="/login" className='link'>Login</Link> | &nbsp; <Link className='link' to="/register">Register</Link>
-                            </li>
-                        </ul>
-                        </div>
-                        <div className="col3 flex w-[10%] items-center justify-end">
+                   
+                        <div className="col2 flex items-center justify-end">
                             <ul className="flex items-center gap-3">
                                 <li className="list-none">
                                     <Link to="/help-center" className="text-[12px] link font-[500] transition">Help Center</Link>
@@ -74,14 +67,19 @@ const Header = () => {
                         <Link to={"/"}><img src='/logo.jpg' /></Link>
                     </div>
 
-                    <div className="col2 w-[40%]">
+                    <div className="col2 w-[45%]">
                         <Search />
                     </div>
-                    
-                        <div className="col4 w-[40%] cart"><ul className="flex items-center flex-row gap-1">
-                            
 
-                            <li>
+                         <div className="col3 w-[30%] flex items-center pl-5">
+
+                        <ul className='flex items-center gap-3'> 
+                            <li className="list-none">
+                                <Link to="/login" className="link transition text-[15px] font-[500]">Login</Link> | &nbsp; 
+                                <Link className="link transition text-[15px] font-[500]" to="/register">Register</Link>
+                            </li>
+
+                             <li>
                                 <Tooltip title="Compare" placement="top">
                                 <IconButton aria-label="cart">
                                     <StyledBadge badgeContent={4} color="secondary">
@@ -113,8 +111,9 @@ const Header = () => {
                                 </IconButton>
                             </li>
                         </ul>
-
-                    </div>
+                        </div>
+                    
+               
 
                 </div>
 
