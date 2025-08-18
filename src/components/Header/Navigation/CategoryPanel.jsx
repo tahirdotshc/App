@@ -7,7 +7,7 @@ import { IoMdClose } from "react-icons/io";
 import { FaRegSquarePlus } from "react-icons/fa6";
 import { Link } from 'react-router-dom';
 import { FaRegSquareMinus } from "react-icons/fa6";
-
+import "../Navigation/style.css"
 
 
 const CategoryPanel = (props) => {
@@ -43,13 +43,15 @@ const CategoryPanel = (props) => {
 
     const DrawerList = (
         <Box sx={{ width: 250 }} role="presentation" className="categoryPanel" >
-            <h3 className='p-3 text-[16px] flex items-center justify-between'>Shop By Categories <IoMdClose onClick={toggleDrawer(false)} className='cursor-pointer text--[20px]' /></h3>
+            <h3 className='p-3 text-[18px] font-[500] flex items-center justify-between'>Shop By Categories <IoMdClose onClick={toggleDrawer(false)} className='cursor-pointer text-[20px]' /></h3>
 
             <div className="scroll">
                 <ul className='w-full'>
+                    
                     <li className='list-none flex items-center relative flex-col'>
-                        <Link to="/">
-                            <Button className='w-full !text-left !justify-start !px-3 !text-black'>Fashion </Button>
+                        <Link to="/" className="w-full">
+                            <Button className='w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,0.8)]'>Fashion </Button>
+                            
                         </Link>
                         
                         {
@@ -65,7 +67,7 @@ const CategoryPanel = (props) => {
                             submenuIndex === 0 && <ul className="submenu w-full pl-3">
                                 <li className="list-none relative">
 
-                                    <Link to="/" className='link w-full !text-left !justify-start !px-3 transition tex-[14px]'>Apparel</Link>
+                                    <Link to="/" className='w-full'><Button className='w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,0.8)]'>Apparel</Button></Link>
 
                                     {
                             innerSubmenuIndex===0 ? <FaRegSquareMinus className='absolute top-[10px] right-[15px] cursor-pointer' onClick={() => openInnerSubmenu(0)} />
@@ -113,9 +115,11 @@ const CategoryPanel = (props) => {
                     </li>
 
 
-                      <li className='list-none flex items-center relative flex-col'>
-                        <Link to="/">
-                            <Button className='w-full !text-left !justify-start !px-3 !text-black'>Fashion </Button>
+
+                    <li className='list-none flex items-center relative flex-col'>
+                        <Link to="/" className="w-full">
+                            <Button className='w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,0.8)]'>Outwear </Button>
+                            
                         </Link>
                         
                         {
@@ -131,7 +135,7 @@ const CategoryPanel = (props) => {
                             submenuIndex === 1 && <ul className="submenu w-full pl-3">
                                 <li className="list-none relative">
 
-                                    <Link to="/" className='link w-full !text-left !justify-start !px-3 transition tex-[14px]'>Apparel</Link>
+                                    <Link to="/" className='w-full'><Button className='w-full !text-left !justify-start !px-3 !text-[rgba(0,0,0,0.8)]'>Apparel</Button></Link>
 
                                     {
                             innerSubmenuIndex===1 ? <FaRegSquareMinus className='absolute top-[10px] right-[15px] cursor-pointer' onClick={() => openInnerSubmenu(1)} />
@@ -177,6 +181,9 @@ const CategoryPanel = (props) => {
                             </ul>
                         }
                     </li>
+
+
+                     
 
 
 

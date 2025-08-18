@@ -7,29 +7,32 @@
 }
 .container
 {
-    width: 90%;
+    width: 95%;
     margin: auto;
 }
 
-header .top-strip 
-{
-   }
+
 
 body
 {
   font-family: "Montserrat", sans-serif;
   font-optical-sizing: auto;
   background: #f5f0f0;
-  
+  color: rgba(0,0,0,0.7)
   
 }
 
-bg-org
-{
-    background: #ff5252;
-}
 
 .link:hover
 {
     color: #ff5252;
 }
+
+.MuiBadge-badge{
+    background-color: #ff5252 !important;
+}
+
+nav ul button{text-transform: capitalize !important;
+    color: aqua !important;
+font-weight:bold !important;}
+
