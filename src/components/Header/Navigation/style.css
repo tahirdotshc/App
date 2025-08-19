@@ -4,7 +4,7 @@ text-transform: capitalize !important;
 
 }
 
-.nav li .submenu {visibility: hidden;}
+.nav li .submenu {visibility: hidden; z-index: 1000;}
 
 .nav li .submenu {font-weight: 500 !important;}
 
