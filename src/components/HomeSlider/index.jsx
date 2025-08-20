@@ -3,7 +3,7 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 import 'swiper/css';
 import 'swiper/css/navigation';
 
-import { Navigation } from 'swiper/modules';
+import { Navigation, Autoplay } from 'swiper/modules';
 
 const HomeSlider = () => {
   return (
@@ -14,7 +14,11 @@ const HomeSlider = () => {
           <Swiper 
           spaceBetween={10}
           navigation={true} 
-          modules={[Navigation]} 
+          modules={[Navigation, Autoplay]} 
+          autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
           className="sliderHome">
       <SwiperSlide>
         <div className="item rounded-[20px] overflow-hidden"><img src="https://www.shutterstock.com/shutterstock/photos/2152276101/display_1500/stock-vector-home-page-landing-white-gray-web-landing-page-template-digital-website-landing-page-design-concept-2152276101.jpg" alt="Banner slide" className="w-full"/></div>
