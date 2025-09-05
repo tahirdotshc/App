@@ -2,6 +2,7 @@ import React from 'react'
 import HomeSlider from '../../components/HomeSlider';
 import HomeCatSlider from '../../components/HomeCatSlider';
 import { LiaShippingFastSolid } from "react-icons/lia";
+import AdsBannerSlider from '../../components/AdsBannerSlider';
 
 
 const Home = () => {
@@ -24,6 +25,8 @@ const Home = () => {
 
           <p className="font-bold text-[25px]">- Only $200*</p>
         </div>
+        
+        <AdsBannerSlider items={4}/>
       </div>
     </section>
 
