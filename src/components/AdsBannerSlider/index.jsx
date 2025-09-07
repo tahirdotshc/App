@@ -16,11 +16,32 @@ const AdsBannerSlider = (props) => {
             spaceBetween={10}
             navigation={true} 
             modules={[Navigation]}
-            className="mySwiper"
+            className="smlBtn"
           >
             <SwiperSlide>
-              <BannerBox img={'https://img.freepik.com/free-vector/futuristic-shopping-online-landing-page-template_23-2148540345.jpg'}/>
+              <BannerBox img={'https://img.freepik.com/free-vector/futuristic-shopping-online-landing-page-template_23-2148540345.jpg'} link={'/'}/>
             </SwiperSlide>
+
+            <SwiperSlide>
+              <BannerBox img={'https://img.freepik.com/free-vector/futuristic-shopping-online-landing-page-template_23-2148540345.jpg'} link={'/'}/>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <BannerBox img={'https://img.freepik.com/free-vector/futuristic-shopping-online-landing-page-template_23-2148540345.jpg'} link={'/'}/>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <BannerBox img={'https://img.freepik.com/free-vector/futuristic-shopping-online-landing-page-template_23-2148540345.jpg'} link={'/'}/>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <BannerBox img={'https://img.freepik.com/free-vector/futuristic-shopping-online-landing-page-template_23-2148540345.jpg'} link={'/'}/>
+            </SwiperSlide>
+
+            <SwiperSlide>
+              <BannerBox img={'https://img.freepik.com/free-vector/futuristic-shopping-online-landing-page-template_23-2148540345.jpg'} link={'/'}/>
+            </SwiperSlide>
+            
             </Swiper>
    </div>
   )
