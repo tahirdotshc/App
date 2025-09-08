@@ -82,7 +82,7 @@ font-weight:bold !important;}
 }
 
 .smlBtn .swiper-button-prev:after, .smlBtn .swiper-button-next:after {
-    font-size: 22px !important;
+    font-size: 18px !important;
     color: #000;
 
 }
@@ -123,3 +123,11 @@ font-weight:bold !important;}
     color: #fff !important;
 }
 
+.MuiTabs-indicator{
+    background-color: #ff5252 !important;
+}
+
+.MuiTab-textColorPrimary.Mui-selected
+{
+    color: #ff5252;
+}
